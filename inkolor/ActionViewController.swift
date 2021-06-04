@@ -13,7 +13,7 @@ class ActionViewController: UIViewController {
     // Audios
     var audioCorrect: AVAudioPlayer?
     var audioWrong: AVAudioPlayer?
-    var soundOn:Bool = false
+    var soundOn:Bool = true
     
     // Drag and drop
     var offset:CGPoint?
@@ -225,7 +225,7 @@ class ActionViewController: UIViewController {
         
         if (self.currentLevel == 0) {
             for x in 0..<colors.count {
-                if (self.inkDragging.getColor() == colors[x]) {
+                if (self.inkDragging.getColor() == colors[x] && currentCircules[currentIndex[indCirculeWillPaint]].getColor() == .gray) {
                     currentCircules[currentIndex[indCirculeWillPaint]].setColor(c: colors[x])
                     isValid = true
                     break
