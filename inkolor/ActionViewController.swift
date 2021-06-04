@@ -85,7 +85,7 @@ class ActionViewController: UIViewController {
         
         // Sound button
         self.buttonSound = self.buttons.getSoundOnButton()
-        self.buttonSound.addTarget(self, action: #selector(actNext), for: .touchDown)
+        self.buttonSound.addTarget(self, action: #selector(actSound), for: .touchDown)
         self.changeButtonIcon()
         self.bgButtonSound = self.buttons.getBg(bt: self.buttonSound)
         view.addSubview(self.bgButtonSound)
@@ -300,7 +300,7 @@ class ActionViewController: UIViewController {
     }
     
     @objc
-    private func changeMusic(_ button: UIButton){
+    private func actSound(_ button: UIButton){
         self.soundOn = !self.soundOn
         self.defaults.setValue(self.soundOn, forKey: "soundOn")
         self.changeButtonIcon()
