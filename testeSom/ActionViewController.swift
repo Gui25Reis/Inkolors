@@ -62,9 +62,9 @@ class ActionViewController: UIViewController {
     
     
     let phrases:[String] = [
-        "Drag the colors to complete the chromatic circle with ONLY the primary colors",
-        "Drag the colors to complete the chromatic circle with secondary colors in between the two primary colors that made them",
-        "Drag the colors to complete the chromatic circle with tertiary colors in between the primary color and secondary color that made them"
+            "Drag and drop ONLY the primary colors into the circles",
+            "Drag and drop each secondary color into the circle between the two primary colors that made them",
+            "Drag and drop each tertiary color into the circle between the primary color and the secondary color that made them"
     ]
     
 
