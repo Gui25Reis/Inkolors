@@ -31,7 +31,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func actLevel(sender:UIButton) -> Void{
-        self.defaults.set(sender.tag, forKey: "level")
+        defaults.set(sender.tag, forKey: "level")
         guard let vc = storyboard?.instantiateViewController(identifier: "idIntro") as? IntroViewController else {return}
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
@@ -46,7 +46,6 @@ class MenuViewController: UIViewController {
 //        self.defaults.set(0, forKey: "level")
 //        self.defaults.set(0, forKey: "completedLevels")
 //        self.defaults.set(true, forKey: "soundOn")
-        // UserDefaults.resetStandardUserDefaults()
         
         
         self.currentLevel = self.defaults.integer(forKey: "level")

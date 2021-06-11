@@ -1,5 +1,7 @@
 import UIKit
 import AVFoundation
+import Foundation
+import MobileCoreServices
 
 class ActionViewController: UIViewController {
     // Botões
@@ -11,8 +13,8 @@ class ActionViewController: UIViewController {
     var infoText: UILabel = UILabel(frame: .zero)
     
     // Audios
-    var audioCorrect: AVAudioPlayer?
-    var audioWrong: AVAudioPlayer?
+    var audioPlayer: AVAudioPlayer?
+    var audioPlayer2: AVAudioPlayer?
     var soundOn:Bool = true
     
     // Drag and drop
@@ -20,6 +22,7 @@ class ActionViewController: UIViewController {
     var isDragging:Bool = false
     var inkDragging:Ink = Ink(num: 0, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
     var lastPosition:[CGFloat] = []
+    var isCircule:Bool = false
     
     // User Defaults
     let defaults = UserDefaults.standard
@@ -52,8 +55,8 @@ class ActionViewController: UIViewController {
         #colorLiteral(red: 0.7449150681, green: 0, blue: 0.4703945518, alpha: 1) : [ #colorLiteral(red: 0.74874717, green: 0, blue: 0.6859405637, alpha: 1), #colorLiteral(red: 0.9581292272, green: 0.07425042242, blue: 0, alpha: 1) ]
     ]
     
-    
     let correctColors:[[UIColor]] = [[#colorLiteral(red: 0.9581292272, green: 0.07425042242, blue: 0, alpha: 1), #colorLiteral(red: 0, green: 0.1643555164, blue: 0.6718087792, alpha: 1), #colorLiteral(red: 1, green: 0.9656507373, blue: 0, alpha: 1)], [#colorLiteral(red: 0.74874717, green: 0, blue: 0.6859405637, alpha: 1), #colorLiteral(red: 0, green: 0.6753202081, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.560541451, blue: 0, alpha: 1)], [#colorLiteral(red: 1, green: 0.3589155078, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.7719227672, blue: 0, alpha: 1), #colorLiteral(red: 0.8076375723, green: 0.8700929284, blue: 0, alpha: 1), #colorLiteral(red: 0, green: 0.642051518, blue: 0.6346852183, alpha: 1), #colorLiteral(red: 0.5137860179, green: 0, blue: 0.6884027123, alpha: 1), #colorLiteral(red: 0.7449150681, green: 0, blue: 0.4703945518, alpha: 1)]]
+    let correctIndex:[[Int]] = [[], [1,3,5], [1,3,5,7,9,11]]
     let lvCirculeColors:[[UIColor]] = [[], [#colorLiteral(red: 0.9581292272, green: 0.07425042242, blue: 0, alpha: 1), #colorLiteral(red: 0, green: 0.1643555164, blue: 0.6718087792, alpha: 1), #colorLiteral(red: 1, green: 0.9656507373, blue: 0, alpha: 1)], [#colorLiteral(red: 0.9581292272, green: 0.07425042242, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.560541451, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.9656507373, blue: 0, alpha: 1), #colorLiteral(red: 0, green: 0.6753202081, blue: 0, alpha: 1), #colorLiteral(red: 0, green: 0.1643555164, blue: 0.6718087792, alpha: 1), #colorLiteral(red: 0.74874717, green: 0, blue: 0.6859405637, alpha: 1)]]
     let lvInkColors:[[UIColor]] = [[#colorLiteral(red: 0.9581292272, green: 0.07425042242, blue: 0, alpha: 1), #colorLiteral(red: 0, green: 0.1643555164, blue: 0.6718087792, alpha: 1), #colorLiteral(red: 1, green: 0.9656507373, blue: 0, alpha: 1), #colorLiteral(red: 0, green: 0.6753202081, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.560541451, blue: 0, alpha: 1), #colorLiteral(red: 0.5137860179, green: 0, blue: 0.6884027123, alpha: 1)],  [#colorLiteral(red: 0.74874717, green: 0, blue: 0.6859405637, alpha: 1), #colorLiteral(red: 0, green: 0.6753202081, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.560541451, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.3589155078, blue: 0, alpha: 1), #colorLiteral(red: 0.5137860179, green: 0, blue: 0.6884027123, alpha: 1), #colorLiteral(red: 0, green: 0.642051518, blue: 0.6346852183, alpha: 1)],  [#colorLiteral(red: 0.7449150681, green: 0, blue: 0.4703945518, alpha: 1), #colorLiteral(red: 0.5137860179, green: 0, blue: 0.6884027123, alpha: 1), #colorLiteral(red: 0, green: 0.642051518, blue: 0.6346852183, alpha: 1), #colorLiteral(red: 0.8076375723, green: 0.8700929284, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.7719227672, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.3589155078, blue: 0, alpha: 1)]]
     
@@ -85,9 +88,14 @@ class ActionViewController: UIViewController {
         
         // Sound button
         self.buttonSound = self.buttons.getSoundOnButton()
-        self.buttonSound.addTarget(self, action: #selector(actSound), for: .touchDown)
-        self.changeButtonIcon()
+        self.buttonSound.addTarget(self, action: #selector(changeMusic), for: .touchDown)
         self.bgButtonSound = self.buttons.getBg(bt: self.buttonSound)
+        if (soundOn){
+            self.buttons.setBtImage(bt: self.buttonSound, icon: "speaker.wave.2")
+        }
+        else{
+            self.buttons.setBtImage(bt: self.buttonSound, icon: "speaker.slash")
+        }
         view.addSubview(self.bgButtonSound)
                 
         // Círculos
@@ -113,6 +121,7 @@ class ActionViewController: UIViewController {
             circlePContainer.addSubview(actualCircule.getView())
         }
         
+        //circlePContainer.backgroundColor = .black
         view.addSubview(circlePContainer)
         
         
@@ -124,12 +133,13 @@ class ActionViewController: UIViewController {
         }
         
         
+        
         // Pegando a música
         if let audioFile = Bundle.main.url(forResource: "acertoFinal.mp4", withExtension: nil) {
             do {
-                try self.audioCorrect = AVAudioPlayer(contentsOf: audioFile)
-                self.audioCorrect?.numberOfLoops = 0
-                self.audioCorrect?.pause()
+                try self.audioPlayer = AVAudioPlayer(contentsOf: audioFile)
+                self.audioPlayer?.numberOfLoops = 0
+                self.audioPlayer?.pause()
             } catch {
                 print("Erro ao tentar tocar o som: \(error)")
             }
@@ -139,9 +149,9 @@ class ActionViewController: UIViewController {
         
         if let audioFile2 = Bundle.main.url(forResource: "erroFinal.mp4", withExtension: nil) {
             do {
-                try self.audioWrong = AVAudioPlayer(contentsOf: audioFile2)
-                self.audioWrong?.numberOfLoops = 0
-                self.audioWrong?.pause()
+                try self.audioPlayer2 = AVAudioPlayer(contentsOf: audioFile2)
+                self.audioPlayer2?.numberOfLoops = 0
+                self.audioPlayer2?.pause()
             } catch {
                 print("Erro ao tentar tocar o som: \(error)")
             }
@@ -149,14 +159,13 @@ class ActionViewController: UIViewController {
             print("Audio não encontrado")
         }
         
-
+        
+        // constraints
         self.setConstraints()
 
     }
     
-    
     /* ==== DRAG AND DROP ==== */
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
@@ -197,14 +206,14 @@ class ActionViewController: UIViewController {
             let lastLocation = touch.location(in: self.circlePContainer)
             
             let currentCircules:[Circule] = self.circules[self.currentLevel]
-            let currentIndex:[Int] = self.indexes[self.currentLevel]
             var circuleView:UIView
             
-            for c in 0..<currentCircules.count {
-                circuleView = currentCircules[currentIndex[c]].getView()
+            for c in currentCircules {
+                circuleView = c.getView()
                 
                 if (circuleView.frame.contains(lastLocation)) {
-                    self.gameLogic(indCirculeWillPaint:c)
+                    self.isCircule = true
+                    self.gameLogic(c:c)
                     break
                 }
             }
@@ -217,60 +226,82 @@ class ActionViewController: UIViewController {
         }
     }
     
-    func gameLogic(indCirculeWillPaint:Int) {
+    func gameLogic(c:Circule) {
         let currentCircules:[Circule] = self.circules[self.currentLevel]
         let currentIndex:[Int] = self.indexes[self.currentLevel]
         let colors:[UIColor] = self.correctColors[self.currentLevel]
+        let index:[Int] = self.correctIndex[self.currentLevel]
         var isValid:Bool = false
         
         if (self.currentLevel == 0) {
             for x in 0..<colors.count {
-                if (self.inkDragging.getColor() == colors[x] && currentCircules[currentIndex[indCirculeWillPaint]].getColor() == .gray) {
-                    currentCircules[currentIndex[indCirculeWillPaint]].setColor(c: colors[x])
+                if (self.inkDragging.getColor() == colors[x]) {
+                    c.setColor(c: colors[x])
                     isValid = true
                     break
                 }
             }
+            
         }else{
+            var isCorrect:Bool = false
             var mix:[UIColor] = []
-            var neighbor1:UIColor
-            var neighbor2:UIColor
-            var cont:Int = 0
+            var neighbor:UIColor
             
             for x in 0..<colors.count {
                 if self.inkDragging.getColor() == colors[x] {
                     mix = self.parentColors[colors[x]]!
+                    neighbor = currentCircules[currentIndex[index[x]-1]].getColor()
+                    for y in mix{
+                        if (neighbor == y) {
+                            isCorrect = true
+                            break
+                        }
+                    }
+                    if (!isCorrect) {return}
                     
-                    if (indCirculeWillPaint-1 < 0){break}
-                    neighbor1 = currentCircules[currentIndex[indCirculeWillPaint-1]].getColor()
-                    
-                    if (indCirculeWillPaint+1 >= self.indexes[self.currentLevel].count){
-                        neighbor2 = currentCircules[currentIndex[0]].getColor()
+                    if (x >= colors.count-1){
+                        neighbor = currentCircules[currentIndex[0]].getColor()
                     }else{
-                        neighbor2 = currentCircules[currentIndex[indCirculeWillPaint+1]].getColor()
+                        neighbor = currentCircules[currentIndex[index[x]+1]].getColor()
                     }
                     
-                    for y in mix{if (y == neighbor1 || y == neighbor2) {cont += 1}}
-                    
-                    if (cont == 2) {
-                        currentCircules[currentIndex[indCirculeWillPaint]].setColor(c: colors[x])
-                        print(indCirculeWillPaint)
-                        isValid = true
+                    for y in mix{
+                        if (neighbor == y) {
+                            c.setColor(c: colors[x])
+                            isValid = true
+                            break
+                        }
+                        
                     }
                 }
             }
         }
         if (isValid) {
-            if(self.soundOn){self.audioCorrect?.play()}
+            if (soundOn){
+                self.audioPlayer?.play()
+            }
             self.isDragging = false
             self.inkDragging.getView().isHidden = true
             self.inkDragging = Ink(num: 0, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
             self.gameCount += 1
             if self.gameCount == self.allGameCounts[self.currentLevel] {self.actNext()}
-            return
         }
-        if(self.soundOn){self.audioWrong?.play()}
+        else{
+            if (soundOn){
+                self.audioPlayer2?.play()
+            }
+        }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     /* ==== AÇÕES DOS BOTOES ==== */
@@ -300,17 +331,25 @@ class ActionViewController: UIViewController {
     }
     
     @objc
-    private func actSound(_ button: UIButton){
-        self.soundOn = !self.soundOn
+    private func changeMusic(_ button: UIButton){
+        soundOn = !soundOn
         self.defaults.setValue(self.soundOn, forKey: "soundOn")
-        self.changeButtonIcon()
+        if (soundOn){
+            self.buttons.setBtImage(bt: self.buttonSound, icon: "speaker.wave.2")
+        }
+        else{
+            self.buttons.setBtImage(bt: self.buttonSound, icon: "speaker.slash")
+        }
     }
     
-    private func changeButtonIcon(){
-        if (soundOn){self.buttons.setBtImage(bt: self.buttonSound, icon: "speaker.wave.2")}
-        else{self.buttons.setBtImage(bt: self.buttonSound, icon: "speaker.slash")}
-    }
-
+    
+    
+    
+    
+    
+    
+    
+    
     
     /* ==== MÉTODOS ==== */
     
@@ -332,7 +371,16 @@ class ActionViewController: UIViewController {
         circulos = []
     }
     
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     private func setConstraints() -> Void{
         

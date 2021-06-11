@@ -56,7 +56,7 @@
 		9D1656A02667FB2E00A11C69 = {
 			isa = PBXGroup;
 			children = (
-				9D1656AB2667FB2E00A11C69 /* inkolor */,
+				9D1656AB2667FB2E00A11C69 /* testeSom */,
 				9D1656AA2667FB2E00A11C69 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,7 +69,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9D1656AB2667FB2E00A11C69 /* inkolor */ = {
+		9D1656AB2667FB2E00A11C69 /* testeSom */ = {
 			isa = PBXGroup;
 			children = (
 				9D1656B52667FB2F00A11C69 /* Assets.xcassets */,
@@ -88,7 +88,7 @@
 				9D1656B72667FB2F00A11C69 /* LaunchScreen.storyboard */,
 				9D1656BA2667FB2F00A11C69 /* Info.plist */,
 			);
-			path = inkolor;
+			path = testeSom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,7 +320,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 534V229RMK;
-				INFOPLIST_FILE = inkolor/Info.plist;
+				INFOPLIST_FILE = testeSom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,7 +340,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 534V229RMK;
-				INFOPLIST_FILE = inkolor/Info.plist;
+				INFOPLIST_FILE = testeSom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
