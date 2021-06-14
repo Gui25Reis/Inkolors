@@ -76,9 +76,9 @@
 				9D1656CE26686F5A00A11C69 /* MenuViewController.swift */,
 				2234DD48266952E80020994C /* IntroViewController.swift */,
 				22703A962668BA5B00514E5A /* ActionViewController.swift */,
+				225C0B8D2668D842004D75E8 /* PriceViewController.swift */,
 				9D47464B2677BA300046B324 /* acertoFinal.mp4 */,
 				9D47464C2677BA300046B324 /* erroFinal.mp4 */,
-				225C0B8D2668D842004D75E8 /* PriceViewController.swift */,
 				22703A922668B06900514E5A /* Buttons.swift */,
 				2234DD4E2669FB430020994C /* Ink.swift */,
 				2234DD4C26696C490020994C /* Circule.swift */,
@@ -326,10 +326,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rebeccompany.rebeccolors;
+				PRODUCT_BUNDLE_IDENTIFIER = br.rebeccompany.inkolors;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -346,10 +346,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rebeccompany.rebeccolors;
+				PRODUCT_BUNDLE_IDENTIFIER = br.rebeccompany.inkolors;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
