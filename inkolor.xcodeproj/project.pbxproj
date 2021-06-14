@@ -13,14 +13,14 @@
 		225C0B8E2668D842004D75E8 /* PriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C0B8D2668D842004D75E8 /* PriceViewController.swift */; };
 		22703A932668B06900514E5A /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22703A922668B06900514E5A /* Buttons.swift */; };
 		22703A972668BA5B00514E5A /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22703A962668BA5B00514E5A /* ActionViewController.swift */; };
-		9D0896D52673FB9100B9E667 /* erroFinal.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9D0896D42673FB9100B9E667 /* erroFinal.mp4 */; };
-		9D0896D72673FBA700B9E667 /* acertoFinal.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9D0896D62673FBA700B9E667 /* acertoFinal.mp4 */; };
 		9D1656AD2667FB2E00A11C69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1656AC2667FB2E00A11C69 /* AppDelegate.swift */; };
 		9D1656AF2667FB2E00A11C69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1656AE2667FB2E00A11C69 /* SceneDelegate.swift */; };
 		9D1656B42667FB2E00A11C69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D1656B22667FB2E00A11C69 /* Main.storyboard */; };
 		9D1656B62667FB2F00A11C69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D1656B52667FB2F00A11C69 /* Assets.xcassets */; };
 		9D1656B92667FB2F00A11C69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D1656B72667FB2F00A11C69 /* LaunchScreen.storyboard */; };
 		9D1656CF26686F5A00A11C69 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1656CE26686F5A00A11C69 /* MenuViewController.swift */; };
+		9DAA6A1A26699CE100D8C973 /* acertoFinal.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9DAA6A1826699CE100D8C973 /* acertoFinal.mp4 */; };
+		9DAA6A1B26699CE100D8C973 /* erroFinal.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9DAA6A1926699CE100D8C973 /* erroFinal.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,9 +30,6 @@
 		225C0B8D2668D842004D75E8 /* PriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewController.swift; sourceTree = "<group>"; };
 		22703A922668B06900514E5A /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		22703A962668BA5B00514E5A /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
-		9D0896D32673FAF600B9E667 /* acertoFinal.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = acertoFinal.mp4; path = ../inkolor.xcodeproj/acertoFinal.mp4; sourceTree = "<group>"; };
-		9D0896D42673FB9100B9E667 /* erroFinal.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = erroFinal.mp4; path = ../../../Inkolors/erroFinal.mp4; sourceTree = "<group>"; };
-		9D0896D62673FBA700B9E667 /* acertoFinal.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = acertoFinal.mp4; sourceTree = "<group>"; };
 		9D1656A92667FB2E00A11C69 /* inkolor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inkolor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1656AC2667FB2E00A11C69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D1656AE2667FB2E00A11C69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +38,8 @@
 		9D1656B82667FB2F00A11C69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D1656BA2667FB2F00A11C69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D1656CE26686F5A00A11C69 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		9DAA6A1826699CE100D8C973 /* acertoFinal.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = acertoFinal.mp4; sourceTree = "<group>"; };
+		9DAA6A1926699CE100D8C973 /* erroFinal.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = erroFinal.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +56,7 @@
 		9D1656A02667FB2E00A11C69 = {
 			isa = PBXGroup;
 			children = (
-				9D1656AB2667FB2E00A11C69 /* testeSom */,
+				9D1656AB2667FB2E00A11C69 /* inkolor */,
 				9D1656AA2667FB2E00A11C69 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,16 +69,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9D1656AB2667FB2E00A11C69 /* testeSom */ = {
+		9D1656AB2667FB2E00A11C69 /* inkolor */ = {
 			isa = PBXGroup;
 			children = (
-				9D0896D32673FAF600B9E667 /* acertoFinal.mp4 */,
 				9D1656B52667FB2F00A11C69 /* Assets.xcassets */,
+				9DAA6A1826699CE100D8C973 /* acertoFinal.mp4 */,
+				9DAA6A1926699CE100D8C973 /* erroFinal.mp4 */,
 				9D1656CE26686F5A00A11C69 /* MenuViewController.swift */,
 				2234DD48266952E80020994C /* IntroViewController.swift */,
 				22703A962668BA5B00514E5A /* ActionViewController.swift */,
-				9D0896D42673FB9100B9E667 /* erroFinal.mp4 */,
-				9D0896D62673FBA700B9E667 /* acertoFinal.mp4 */,
 				225C0B8D2668D842004D75E8 /* PriceViewController.swift */,
 				22703A922668B06900514E5A /* Buttons.swift */,
 				2234DD4E2669FB430020994C /* Ink.swift */,
@@ -90,7 +88,7 @@
 				9D1656B72667FB2F00A11C69 /* LaunchScreen.storyboard */,
 				9D1656BA2667FB2F00A11C69 /* Info.plist */,
 			);
-			path = testeSom;
+			path = inkolor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,10 +148,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DAA6A1B26699CE100D8C973 /* erroFinal.mp4 in Resources */,
 				9D1656B92667FB2F00A11C69 /* LaunchScreen.storyboard in Resources */,
 				9D1656B62667FB2F00A11C69 /* Assets.xcassets in Resources */,
-				9D0896D72673FBA700B9E667 /* acertoFinal.mp4 in Resources */,
-				9D0896D52673FB9100B9E667 /* erroFinal.mp4 in Resources */,
+				9DAA6A1A26699CE100D8C973 /* acertoFinal.mp4 in Resources */,
 				9D1656B42667FB2E00A11C69 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,8 +319,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R36LU3NVAA;
-				INFOPLIST_FILE = testeSom/Info.plist;
+				DEVELOPMENT_TEAM = 534V229RMK;
+				INFOPLIST_FILE = inkolor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,8 +339,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R36LU3NVAA;
-				INFOPLIST_FILE = testeSom/Info.plist;
+				DEVELOPMENT_TEAM = 534V229RMK;
+				INFOPLIST_FILE = inkolor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:acertoFinal.mp4">
-   </FileRef>
-   <FileRef
-      location = "self:">
+      location = "self:/Users/kings-mac/Desktop/guiCopia/inkolor.xcodeproj">
    </FileRef>
 </Workspace>
