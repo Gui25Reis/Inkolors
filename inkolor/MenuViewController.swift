@@ -7,7 +7,7 @@ import UIKit
 class MenuViewController: UIViewController {
     
     let letters:[String] = ["I", "N", "K", "O", "L", "O", "R", "S"]
-    let colors:[UIColor] = [ #colorLiteral(red: 0.5028263092, green: 0.4893502457, blue: 0.4528763294, alpha: 1),  #colorLiteral(red: 0.7686265111, green: 0.3437641561, blue: 0.3794900775, alpha: 1),  #colorLiteral(red: 0.6050088534, green: 0.6803177595, blue: 0.364597857, alpha: 1),  #colorLiteral(red: 0.836702466, green: 0.6028306484, blue: 0, alpha: 1),  #colorLiteral(red: 0.7220590711, green: 0.3090983033, blue: 0.8378536701, alpha: 1),  #colorLiteral(red: 0.8688660264, green: 0.268450783, blue: 0.6067544818, alpha: 1),  #colorLiteral(red: 0.8472318053, green: 0.1266637444, blue: 0.2175347507, alpha: 1),  #colorLiteral(red: 0, green: 0.464274168, blue: 0.3145292501, alpha: 1)]
+    let colors:[UIColor] = [ #colorLiteral(red: 0, green: 0.6439785361, blue: 0, alpha: 1),  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 0, green: 0.6153349876, blue: 0.5963861346, alpha: 1),  #colorLiteral(red: 1, green: 0.4701431394, blue: 0, alpha: 1),  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1),  #colorLiteral(red: 0.3140003979, green: 0.8086813688, blue: 0.6361778378, alpha: 1),  #colorLiteral(red: 0.75294137, green: 0.8443900943, blue: 0, alpha: 1)]
     var labels:[UILabel] = []
     var buttons:[UIButton] = []
     let defaults = UserDefaults.standard
@@ -63,7 +63,7 @@ class MenuViewController: UIViewController {
             buttons.append(self.setButton(num: x))
             if (x <= self.completedLevels) {
                 buttons[x].isEnabled = true
-                buttons[x].backgroundColor = #colorLiteral(red: 0.7304742932, green: 0.8675973415, blue: 0.8127686381, alpha: 1)
+                buttons[x].backgroundColor = #colorLiteral(red: 0.4485500455, green: 0.8666214347, blue: 0.7166131139, alpha: 1)
             }
             view.addSubview(buttons[x])
         }

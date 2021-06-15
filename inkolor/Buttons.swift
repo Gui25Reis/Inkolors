@@ -11,7 +11,7 @@ import UIKit
 class Buttons {
     public func getBg(bt:UIButton, _ size:CGFloat = 60) -> UIView{
         let btBgColor: UIView = UIView()
-        btBgColor.backgroundColor = #colorLiteral(red: 0.7304742932, green: 0.8675973415, blue: 0.8127686381, alpha: 1)
+        btBgColor.backgroundColor = #colorLiteral(red: 0.4485500455, green: 0.8666214347, blue: 0.7166131139, alpha: 1)
         btBgColor.layer.cornerRadius = 30
         btBgColor.translatesAutoresizingMaskIntoConstraints = false
         btBgColor.addSubview(bt)
@@ -30,7 +30,7 @@ class Buttons {
         self.setBtImage(bt: bt, icon: icon, sizeFont)
         bt.layer.cornerRadius = 5
         bt.tintColor = #colorLiteral(red: 1, green: 0.9845215678, blue: 0.9319496751, alpha: 1)
-        bt.backgroundColor = #colorLiteral(red: 0.7304742932, green: 0.8675973415, blue: 0.8127686381, alpha: 1)
+        bt.backgroundColor = #colorLiteral(red: 0.4485500455, green: 0.8666214347, blue: 0.7166131139, alpha: 1)
         bt.translatesAutoresizingMaskIntoConstraints = false
         return bt
     }
