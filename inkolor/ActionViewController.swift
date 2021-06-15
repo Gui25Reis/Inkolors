@@ -60,8 +60,8 @@ class ActionViewController: UIViewController {
     
     let phrases:[String] = [
             "Drag and drop ONLY the primary colors into the circles",
-            "Drag and drop each secondary color into the circle between the two primary colors that made them",
-            "Drag and drop each tertiary color into the circle between the primary color and the secondary color that made them"
+            "Drag and drop each secondary color into the circle between the colors that made them",
+            "Drag and drop each tertiary color into the circle between the colors that made them"
         ]
     
 
@@ -112,7 +112,9 @@ class ActionViewController: UIViewController {
             }
             circlePContainer.addSubview(actualCircule.getView())
         }
-        
+        circlePContainer.backgroundColor = .red
+        circlePContainer.layer.masksToBounds = true
+        circlePContainer.contentMode = .scaleAspectFit
         view.addSubview(circlePContainer)
         
         
@@ -329,7 +331,7 @@ class ActionViewController: UIViewController {
         
         for _ in 0..<loop {circulos.append(Circule(size: size,color: .gray, corner: corner))}
         self.circules.append(circulos)
-        circulos = []
+        //circulos = []
     }
     
 
@@ -339,8 +341,8 @@ class ActionViewController: UIViewController {
         // background home
         self.bgButtonHome.translatesAutoresizingMaskIntoConstraints = false
         let bgButtonHomeConstraints: [NSLayoutConstraint] = [
-            self.bgButtonHome.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            self.bgButtonHome.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            self.bgButtonHome.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.070),
+            self.bgButtonHome.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
         ]
         NSLayoutConstraint.activate(bgButtonHomeConstraints)
         
@@ -348,22 +350,23 @@ class ActionViewController: UIViewController {
         // background sound
         self.bgButtonSound.translatesAutoresizingMaskIntoConstraints = false
         let bgButtonSoundConstraints: [NSLayoutConstraint] = [
-            self.bgButtonSound.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            self.bgButtonSound.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            self.bgButtonSound.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.070),
+            self.bgButtonSound.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
         ]
         NSLayoutConstraint.activate(bgButtonSoundConstraints)
         
         
         // info text
         let infoTextConstraints: [NSLayoutConstraint] = [
-            infoText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 55),
-            infoText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -55),
+            infoText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            infoText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             infoText.topAnchor.constraint(equalTo: bgButtonHome.topAnchor, constant: 90)
         ]
         NSLayoutConstraint.activate(infoTextConstraints)
 
     //        /* ==== TINTAS ===== */
-
+        // MARK: TINTAS
+        
 
         let ink01Constraints: [NSLayoutConstraint] = [
             self.inks[0].getView().bottomAnchor.constraint(equalTo: self.inks[3].getView().topAnchor, constant: -10),
@@ -406,7 +409,7 @@ class ActionViewController: UIViewController {
 
 
         let ink06Constraints: [NSLayoutConstraint] = [
-            self.inks[5].getView().bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -45),
+            self.inks[5].getView().bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: view.bounds.height * -0.035),
             self.inks[5].getView().trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ]
         NSLayoutConstraint.activate(ink06Constraints)
@@ -415,10 +418,14 @@ class ActionViewController: UIViewController {
         
         circlePContainer.translatesAutoresizingMaskIntoConstraints = false
         let circlePContainerConstraints: [NSLayoutConstraint] = [
-            circlePContainer.topAnchor.constraint(equalTo: infoText.bottomAnchor, constant: 25),
+            circlePContainer.topAnchor.constraint(equalTo: infoText.bottomAnchor, constant: 20),
+            circlePContainer.bottomAnchor.constraint(equalTo: self.inks[0].getView().topAnchor, constant: -20),
             circlePContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            //circlePContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            //circlePContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             circlePContainer.heightAnchor.constraint(equalToConstant: 300),
-            circlePContainer.widthAnchor.constraint(equalToConstant: 300)
+            circlePContainer.widthAnchor.constraint(equalToConstant: 300),
+            //circlePContainer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6)
         ]
         NSLayoutConstraint.activate(circlePContainerConstraints)
         
