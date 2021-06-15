@@ -7,7 +7,7 @@ import UIKit
 class MenuViewController: UIViewController {
     
     let letters:[String] = ["I", "N", "K", "O", "L", "O", "R", "S"]
-    let colors:[UIColor] = [ #colorLiteral(red: 0.5028263092, green: 0.4893502457, blue: 0.4528763294, alpha: 1),  #colorLiteral(red: 0.7686265111, green: 0.3437641561, blue: 0.3794900775, alpha: 1),  #colorLiteral(red: 0.6050088534, green: 0.6803177595, blue: 0.364597857, alpha: 1),  #colorLiteral(red: 0.836702466, green: 0.6028306484, blue: 0, alpha: 1),  #colorLiteral(red: 0.7220590711, green: 0.3090983033, blue: 0.8378536701, alpha: 1),  #colorLiteral(red: 0.8688660264, green: 0.268450783, blue: 0.6067544818, alpha: 1),  #colorLiteral(red: 0.8472318053, green: 0.1266637444, blue: 0.2175347507, alpha: 1),  #colorLiteral(red: 0, green: 0.464274168, blue: 0.3145292501, alpha: 1)]
+    let colors:[UIColor] = [ #colorLiteral(red: 0, green: 0.6439785361, blue: 0, alpha: 1),  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 0, green: 0.6153349876, blue: 0.5963861346, alpha: 1),  #colorLiteral(red: 1, green: 0.4701431394, blue: 0, alpha: 1),  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1),  #colorLiteral(red: 0.1485393047, green: 0.8102342486, blue: 0.6060324907, alpha: 1),  #colorLiteral(red: 0.75294137, green: 0.8443900943, blue: 0, alpha: 1)]
     var labels:[UILabel] = []
     var buttons:[UIButton] = []
     let defaults = UserDefaults.standard
@@ -24,7 +24,7 @@ class MenuViewController: UIViewController {
         let lbl:UILabel = UILabel()
         lbl.text = text
         lbl.textAlignment = .center
-        lbl.font = .systemFont(ofSize: 50, weight: .bold)
+        lbl.font = .systemFont(ofSize: view.bounds.height * 0.065, weight: .bold)
         lbl.textColor = color
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
@@ -63,7 +63,7 @@ class MenuViewController: UIViewController {
             buttons.append(self.setButton(num: x))
             if (x <= self.completedLevels) {
                 buttons[x].isEnabled = true
-                buttons[x].backgroundColor = #colorLiteral(red: 0.7304742932, green: 0.8675973415, blue: 0.8127686381, alpha: 1)
+                buttons[x].backgroundColor = #colorLiteral(red: 0.4485500455, green: 0.8666214347, blue: 0.7166131139, alpha: 1)
             }
             view.addSubview(buttons[x])
         }
@@ -79,9 +79,9 @@ class MenuViewController: UIViewController {
         let bt:UIButton = UIButton(type: .custom)
         bt.setTitle(String(num+1), for: .normal)
         bt.setTitleColor(#colorLiteral(red: 1, green: 0.9845215678, blue: 0.9319496751, alpha: 1), for: .normal)
-        bt.titleLabel?.font = UIFont.boldSystemFont(ofSize: 100)
+        bt.titleLabel?.font = UIFont.boldSystemFont(ofSize: view.bounds.height * 0.14)
         bt.backgroundColor = #colorLiteral(red: 0.8631923199, green: 0.8599755168, blue: 0.8393679261, alpha: 1)
-        bt.layer.cornerRadius = 40
+        bt.layer.cornerRadius = view.bounds.height * 0.045
         bt.setTitleColor(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), for: .highlighted)
         bt.isEnabled = false
         bt.tag = num
@@ -95,7 +95,7 @@ class MenuViewController: UIViewController {
         self.labels[0].translatesAutoresizingMaskIntoConstraints = false
         let iConstraints: [NSLayoutConstraint] = [
             self.labels[0].trailingAnchor.constraint(equalTo: self.labels[1].leadingAnchor, constant: 1),
-            self.labels[0].topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
+            self.labels[0].topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.1),
         ]
         NSLayoutConstraint.activate(iConstraints)
         
@@ -103,7 +103,7 @@ class MenuViewController: UIViewController {
         self.labels[1].translatesAutoresizingMaskIntoConstraints = false
         let nConstraints: [NSLayoutConstraint] = [
             self.labels[1].trailingAnchor.constraint(equalTo: self.labels[2].leadingAnchor, constant: 1),
-            self.labels[1].topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
+            self.labels[1].topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.1),
         ]
         NSLayoutConstraint.activate(nConstraints)
         
@@ -111,7 +111,7 @@ class MenuViewController: UIViewController {
         self.labels[2].translatesAutoresizingMaskIntoConstraints = false
         let kConstraints: [NSLayoutConstraint] = [
             self.labels[2].trailingAnchor.constraint(equalTo: self.labels[3].leadingAnchor, constant: 1),
-            self.labels[2].topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
+            self.labels[2].topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.1),
         ]
         NSLayoutConstraint.activate(kConstraints)
         
@@ -119,7 +119,7 @@ class MenuViewController: UIViewController {
         self.labels[3].translatesAutoresizingMaskIntoConstraints = false
         let o1Constraints: [NSLayoutConstraint] = [
             self.labels[3].trailingAnchor.constraint(equalTo: view.centerXAnchor),
-            self.labels[3].topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
+            self.labels[3].topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.1),
         ]
         NSLayoutConstraint.activate(o1Constraints)
         
@@ -127,7 +127,7 @@ class MenuViewController: UIViewController {
         self.labels[4].translatesAutoresizingMaskIntoConstraints = false
         let lConstraints: [NSLayoutConstraint] = [
             self.labels[4].leadingAnchor.constraint(equalTo: view.centerXAnchor),
-            self.labels[4].topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
+            self.labels[4].topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.1),
         ]
         NSLayoutConstraint.activate(lConstraints)
         
@@ -135,7 +135,7 @@ class MenuViewController: UIViewController {
         self.labels[5].translatesAutoresizingMaskIntoConstraints = false
         let o2Constraints: [NSLayoutConstraint] = [
             self.labels[5].leadingAnchor.constraint(equalTo: self.labels[4].trailingAnchor, constant: -1),
-            self.labels[5].topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
+            self.labels[5].topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.1),
         ]
         NSLayoutConstraint.activate(o2Constraints)
         
@@ -143,7 +143,7 @@ class MenuViewController: UIViewController {
         self.labels[6].translatesAutoresizingMaskIntoConstraints = false
         let rConstraints: [NSLayoutConstraint] = [
             self.labels[6].leadingAnchor.constraint(equalTo: self.labels[5].trailingAnchor, constant: -1),
-            self.labels[6].topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
+            self.labels[6].topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.1),
         ]
         NSLayoutConstraint.activate(rConstraints)
         
@@ -151,17 +151,18 @@ class MenuViewController: UIViewController {
         self.labels[7].translatesAutoresizingMaskIntoConstraints = false
         let sConstraints: [NSLayoutConstraint] = [
             self.labels[7].leadingAnchor.constraint(equalTo: self.labels[6].trailingAnchor, constant: -1),
-            self.labels[7].topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
+            self.labels[7].topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.1),
         ]
         NSLayoutConstraint.activate(sConstraints)
         
         // button 1
+        let sizeBut: CGFloat = 0.19
         self.buttons[0].translatesAutoresizingMaskIntoConstraints = false
         let bt1Constraints: [NSLayoutConstraint] = [
             self.buttons[0].centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            self.buttons[0].topAnchor.constraint(equalTo: self.labels[0].bottomAnchor, constant: 50),
-            self.buttons[0].heightAnchor.constraint(equalToConstant: 150),
-            self.buttons[0].widthAnchor.constraint(equalToConstant: 150)
+            self.buttons[0].topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.25),
+            self.buttons[0].heightAnchor.constraint(equalToConstant: view.bounds.height * sizeBut),
+            self.buttons[0].widthAnchor.constraint(equalToConstant: view.bounds.height * sizeBut)
         ]
         NSLayoutConstraint.activate(bt1Constraints)
         
@@ -171,8 +172,8 @@ class MenuViewController: UIViewController {
         let bt2Constraints: [NSLayoutConstraint] = [
             self.buttons[1].centerXAnchor.constraint(equalTo: view.centerXAnchor),
             self.buttons[1].topAnchor.constraint(equalTo: self.buttons[0].bottomAnchor, constant: 30),
-            self.buttons[1].heightAnchor.constraint(equalToConstant: 150),
-            self.buttons[1].widthAnchor.constraint(equalToConstant: 150)
+            self.buttons[1].heightAnchor.constraint(equalToConstant: view.bounds.height * sizeBut),
+            self.buttons[1].widthAnchor.constraint(equalToConstant: view.bounds.height * sizeBut)
         ]
         NSLayoutConstraint.activate(bt2Constraints)
         
@@ -181,8 +182,8 @@ class MenuViewController: UIViewController {
         let bt3Constraints: [NSLayoutConstraint] = [
             self.buttons[2].centerXAnchor.constraint(equalTo: view.centerXAnchor),
             self.buttons[2].topAnchor.constraint(equalTo: self.buttons[1].bottomAnchor, constant: 30),
-            self.buttons[2].heightAnchor.constraint(equalToConstant: 150),
-            self.buttons[2].widthAnchor.constraint(equalToConstant: 150)
+            self.buttons[2].heightAnchor.constraint(equalToConstant: view.bounds.height * sizeBut),
+            self.buttons[2].widthAnchor.constraint(equalToConstant: view.bounds.height * sizeBut)
         ]
         NSLayoutConstraint.activate(bt3Constraints)
         
