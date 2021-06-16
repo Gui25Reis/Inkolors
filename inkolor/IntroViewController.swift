@@ -40,16 +40,16 @@ class IntroViewController: UIViewController {
         
         self.buttonNext = self.buttons.getNextButton(sizeFont: 40)
         self.buttonNext.addTarget(self, action: #selector(actNext), for: .touchDown)
-        self.bgButtonNext = self.buttons.getBg(bt: self.buttonNext, 100)
-        self.bgButtonNext.layer.cornerRadius = 50
+        self.bgButtonNext = self.buttons.getBg(bt: self.buttonNext, 80)
+        self.bgButtonNext.layer.cornerRadius = 40
         view.addSubview(self.bgButtonNext)
         
         
         // Labels
-        self.titleLabel = self.setLabel(text: self.phrasesTitle[self.currentLevel], sizeFont: 28, align: .center, w: .bold)
+        self.titleLabel = self.setLabel(text: self.phrasesTitle[self.currentLevel], sizeFont: view.bounds.height * 0.035, align: .center, w: .bold)
         view.addSubview(self.titleLabel)
         
-        self.infoLabel = self.setLabel(text: self.phrasesInfo[self.currentLevel], sizeFont: 23, align: .left, w: .regular)
+        self.infoLabel = self.setLabel(text: self.phrasesInfo[self.currentLevel], sizeFont: view.bounds.height * 0.03, align: .left, w: .regular)
         view.addSubview(self.infoLabel)
         
         self.setConstraints()
@@ -86,8 +86,8 @@ class IntroViewController: UIViewController {
         // background home
         bgButtonHome.translatesAutoresizingMaskIntoConstraints = false
         let bgButtonHomeConstraints: [NSLayoutConstraint] = [
-            self.bgButtonHome.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            self.bgButtonHome.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            self.bgButtonHome.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.070),
+            self.bgButtonHome.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
         ]
         NSLayoutConstraint.activate(bgButtonHomeConstraints)
         
@@ -95,7 +95,7 @@ class IntroViewController: UIViewController {
         bgButtonNext.translatesAutoresizingMaskIntoConstraints = false
         let bgButtonNextConstraints: [NSLayoutConstraint] = [
             bgButtonNext.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            bgButtonNext.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
+            bgButtonNext.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: view.bounds.height * -0.15),
         ]
         NSLayoutConstraint.activate(bgButtonNextConstraints)
         
@@ -104,7 +104,7 @@ class IntroViewController: UIViewController {
             self.titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
             self.titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             self.titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            self.titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 260)
+            self.titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.26)
         ]
         NSLayoutConstraint.activate(titleLabelConstraints)
         
@@ -112,7 +112,7 @@ class IntroViewController: UIViewController {
         let infoLabelConstraints: [NSLayoutConstraint] = [
             self.infoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 55),
             self.infoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -55),
-            self.infoLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 50)
+            self.infoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.45)
         ]
         NSLayoutConstraint.activate(infoLabelConstraints)
     }
