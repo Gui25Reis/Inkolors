@@ -6,6 +6,10 @@ import class AVFoundation.AVAudioPlayer
 class ActionViewController: UIViewController {
     let myView = ActionView()
     
+    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
+        return UIRectEdge.bottom
+    }
+    
     // Audios
     var buttonSound = UIButton()
     var audioCorrect: AVAudioPlayer?

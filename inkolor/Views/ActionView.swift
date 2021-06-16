@@ -31,7 +31,6 @@ class ActionView: UIView {
     // Tintas
     var inks:[Ink] = []
     
-    
     init() {
         super.init(frame: .zero)
                 
