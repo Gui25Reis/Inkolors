@@ -27,10 +27,10 @@ class ActionViewController: UIViewController {
     var completedLevels:Int = 0
     
     // Circulos
-    let circlePContainer: UIView = UIView(frame: .zero)
+    let circlePContainer: UIView = UIView(frame: CGRect(x: 300, y: 300, width: 300, height: 300))
     var circules:[[Circule]] = []
-    let indexes:[[Int]] = [[0,1,2],[0,2,4,5,3,1],[0,2,4,6,8,10,11,9,7,5,3,1],]
-    
+    //let indexes:[[Int]] = [[0,1,2],[0,2,4,5,3,1],[0,2,4,6,8,10,11,9,7,5,3,1],]
+    let indexes:[[Int]] = [[0,1,2],[0,1,2,3,4,5],[0,1,2,3,4,5,6,7,8,9,10,11],]
     // Tintas
     var inks:[Ink] = []
     
@@ -112,9 +112,8 @@ class ActionViewController: UIViewController {
             }
             circlePContainer.addSubview(actualCircule.getView())
         }
-        circlePContainer.backgroundColor = .red
-        circlePContainer.layer.masksToBounds = true
-        circlePContainer.contentMode = .scaleAspectFit
+        
+        
         view.addSubview(circlePContainer)
         
         
@@ -367,10 +366,13 @@ class ActionViewController: UIViewController {
     //        /* ==== TINTAS ===== */
         // MARK: TINTAS
         
-
+        
+        
         let ink01Constraints: [NSLayoutConstraint] = [
             self.inks[0].getView().bottomAnchor.constraint(equalTo: self.inks[3].getView().topAnchor, constant: -10),
             self.inks[0].getView().leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            self.inks[0].getView().heightAnchor.constraint(equalToConstant: view.bounds.height*0.09),
+            self.inks[0].getView().widthAnchor.constraint(equalToConstant: view.bounds.height*0.09)
         ]
         NSLayoutConstraint.activate(ink01Constraints)
         self.inks[0].setConstraints(l: ink01Constraints)
@@ -379,6 +381,8 @@ class ActionViewController: UIViewController {
         let ink02Constraints: [NSLayoutConstraint] = [
             self.inks[1].getView().bottomAnchor.constraint(equalTo: self.inks[0].getView().bottomAnchor),
             self.inks[1].getView().leftAnchor.constraint(equalTo: self.inks[0].getView().rightAnchor, constant: 20),
+            self.inks[1].getView().heightAnchor.constraint(equalToConstant: view.bounds.height*0.09),
+            self.inks[1].getView().widthAnchor.constraint(equalToConstant: view.bounds.height*0.09)
         ]
         NSLayoutConstraint.activate(ink02Constraints)
         self.inks[1].setConstraints(l: ink02Constraints)
@@ -387,6 +391,8 @@ class ActionViewController: UIViewController {
         let ink03Constraints: [NSLayoutConstraint] = [
             self.inks[2].getView().bottomAnchor.constraint(equalTo: self.inks[0].getView().bottomAnchor),
             self.inks[2].getView().leftAnchor.constraint(equalTo: self.inks[1].getView().rightAnchor, constant: 20),
+            self.inks[2].getView().heightAnchor.constraint(equalToConstant: view.bounds.height*0.09),
+            self.inks[2].getView().widthAnchor.constraint(equalToConstant: view.bounds.height*0.09)
         ]
         NSLayoutConstraint.activate(ink03Constraints)
         self.inks[2].setConstraints(l: ink03Constraints)
@@ -395,6 +401,8 @@ class ActionViewController: UIViewController {
         let ink04Constraints: [NSLayoutConstraint] = [
             self.inks[3].getView().bottomAnchor.constraint(equalTo: self.inks[5].getView().bottomAnchor),
             self.inks[3].getView().rightAnchor.constraint(equalTo: self.inks[4].getView().leftAnchor, constant: -20),
+            self.inks[3].getView().heightAnchor.constraint(equalToConstant: view.bounds.height*0.09),
+            self.inks[3].getView().widthAnchor.constraint(equalToConstant: view.bounds.height*0.09)
         ]
         NSLayoutConstraint.activate(ink04Constraints)
         self.inks[3].setConstraints(l: ink04Constraints)
@@ -403,14 +411,18 @@ class ActionViewController: UIViewController {
         let ink05Constraints: [NSLayoutConstraint] = [
             self.inks[4].getView().bottomAnchor.constraint(equalTo: self.inks[5].getView().bottomAnchor),
             self.inks[4].getView().rightAnchor.constraint(equalTo: self.inks[5].getView().leftAnchor, constant: -20),
+            self.inks[4].getView().heightAnchor.constraint(equalToConstant: view.bounds.height*0.09),
+            self.inks[4].getView().widthAnchor.constraint(equalToConstant: view.bounds.height*0.09)
         ]
         NSLayoutConstraint.activate(ink05Constraints)
         self.inks[4].setConstraints(l: ink05Constraints)
 
 
         let ink06Constraints: [NSLayoutConstraint] = [
-            self.inks[5].getView().bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: view.bounds.height * -0.035),
+            self.inks[5].getView().bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: view.bounds.height * -0.055),
             self.inks[5].getView().trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            self.inks[5].getView().heightAnchor.constraint(equalToConstant: view.bounds.height*0.09),
+            self.inks[5].getView().widthAnchor.constraint(equalToConstant: view.bounds.height*0.09)
         ]
         NSLayoutConstraint.activate(ink06Constraints)
         self.inks[5].setConstraints(l: ink05Constraints)
@@ -418,177 +430,58 @@ class ActionViewController: UIViewController {
         
         circlePContainer.translatesAutoresizingMaskIntoConstraints = false
         let circlePContainerConstraints: [NSLayoutConstraint] = [
-            circlePContainer.topAnchor.constraint(equalTo: infoText.bottomAnchor, constant: 20),
-            circlePContainer.bottomAnchor.constraint(equalTo: self.inks[0].getView().topAnchor, constant: -20),
             circlePContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            //circlePContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            //circlePContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            circlePContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * 0.3),
             circlePContainer.heightAnchor.constraint(equalToConstant: 300),
             circlePContainer.widthAnchor.constraint(equalToConstant: 300),
-            //circlePContainer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6)
         ]
         NSLayoutConstraint.activate(circlePContainerConstraints)
         
         
         var circule:[Circule]
+        let sizeCirc: [CGFloat] = [80, 60, 40]
         
         // ==== PRIMÁRIAS ====
         if (self.currentLevel == 0) {
             circule = self.circules[0]
-            let circleP0Constraints: [NSLayoutConstraint] = [
-                circule[0].getView().topAnchor.constraint(equalTo: circlePContainer.topAnchor, constant: 45),
-                circule[0].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor),
-            ]
-            NSLayoutConstraint.activate(circleP0Constraints)
+            setCircleConstraints(circule, sizeCirc[0])
             
-
-            let circleP1Constraints: [NSLayoutConstraint] = [
-                circule[1].getView().bottomAnchor.constraint(equalTo: circlePContainer.bottomAnchor, constant: -45),
-                circule[1].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: -65),
-            ]
-            NSLayoutConstraint.activate(circleP1Constraints)
-            
-            
-            let circleP2Constraints: [NSLayoutConstraint] = [
-                circule[2].getView().bottomAnchor.constraint(equalTo: circlePContainer.bottomAnchor, constant: -45),
-                circule[2].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: 65),
-            ]
-            NSLayoutConstraint.activate(circleP2Constraints)
         }
         // ==== SECUNDÁRIAS ====
         if (self.currentLevel == 1) {
             circule = self.circules[1]
-           let circleS0Constraints: [NSLayoutConstraint] = [
-               circule[0].getView().topAnchor.constraint(equalTo: circlePContainer.topAnchor, constant: 25),
-               circule[0].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor),
-           ]
-           NSLayoutConstraint.activate(circleS0Constraints)
-           
-
-           let circleS1Constraints: [NSLayoutConstraint] = [
-               circule[1].getView().topAnchor.constraint(equalTo: circule[0].getView().centerYAnchor, constant: 25),
-               circule[1].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: -75),
-           ]
-           NSLayoutConstraint.activate(circleS1Constraints)
-           
-
-           let circleS2Constraints: [NSLayoutConstraint] = [
-               circule[2].getView().topAnchor.constraint(equalTo: circule[0].getView().centerYAnchor, constant: 25),
-               circule[2].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: 75),
-           ]
-           NSLayoutConstraint.activate(circleS2Constraints)
-           
-
-           let circleS3Constraints: [NSLayoutConstraint] = [
-               circule[3].getView().bottomAnchor.constraint(equalTo: circule[5].getView().centerYAnchor, constant: -25),
-               circule[3].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: -75),
-           ]
-           NSLayoutConstraint.activate(circleS3Constraints)
-           
-
-           let circleS4Constraints: [NSLayoutConstraint] = [
-               circule[4].getView().bottomAnchor.constraint(equalTo: circule[5].getView().centerYAnchor, constant: -25),
-               circule[4].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: 75),
-           ]
-           NSLayoutConstraint.activate(circleS4Constraints)
-           
-
-           let circleS5Constraints: [NSLayoutConstraint] = [
-               circule[5].getView().bottomAnchor.constraint(equalTo: circlePContainer.bottomAnchor, constant: -25),
-               circule[5].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor),
-           ]
-           NSLayoutConstraint.activate(circleS5Constraints)
+            setCircleConstraints(circule, sizeCirc[1])
         }
        
        // ==== TERCIÁRIAS ====
         if (self.currentLevel == 2) {
             circule = self.circules[2]
-           //t0
-           let circleT0Constraints: [NSLayoutConstraint] = [
-               circule[0].getView().topAnchor.constraint(equalTo: circlePContainer.topAnchor, constant: 18),
-               circule[0].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor),
-           ]
-           NSLayoutConstraint.activate(circleT0Constraints)
-           
-           //t1
-           let circleT1Constraints: [NSLayoutConstraint] = [
-               circule[1].getView().topAnchor.constraint(equalTo: circule[0].getView().centerYAnchor),
-               circule[1].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: -50),
-           ]
-           NSLayoutConstraint.activate(circleT1Constraints)
-           
-           //t2
-           let circleT2Constraints: [NSLayoutConstraint] = [
-               circule[2].getView().topAnchor.constraint(equalTo: circule[0].getView().centerYAnchor),
-               circule[2].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: 50),
-           ]
-           NSLayoutConstraint.activate(circleT2Constraints)
-           
-           //t3
-           let circleT3Constraints: [NSLayoutConstraint] = [
-               circule[3].getView().topAnchor.constraint(equalTo: circule[1].getView().centerYAnchor, constant: 20),
-               circule[3].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: -90),
-           ]
-           NSLayoutConstraint.activate(circleT3Constraints)
-           
-           //t4
-           let circleT4Constraints: [NSLayoutConstraint] = [
-               circule[4].getView().topAnchor.constraint(equalTo: circule[1].getView().centerYAnchor, constant: 20),
-               circule[4].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: 90),
-           ]
-           NSLayoutConstraint.activate(circleT4Constraints)
-           
-           //t5
-           let circleT5Constraints: [NSLayoutConstraint] = [
-               circule[5].getView().centerYAnchor.constraint(equalTo: circlePContainer.centerYAnchor),
-               circule[5].getView().leadingAnchor.constraint(equalTo: circlePContainer.leadingAnchor, constant: 18),
-           ]
-           NSLayoutConstraint.activate(circleT5Constraints)
-           
-           //t6
-           let circleT6Constraints: [NSLayoutConstraint] = [
-               circule[6].getView().centerYAnchor.constraint(equalTo: circlePContainer.centerYAnchor),
-               circule[6].getView().trailingAnchor.constraint(equalTo: circlePContainer.trailingAnchor, constant: -18),
-           ]
-           NSLayoutConstraint.activate(circleT6Constraints)
-           
-           //t7
-           let circleT7Constraints: [NSLayoutConstraint] = [
-               circule[7].getView().bottomAnchor.constraint(equalTo: circule[9].getView().centerYAnchor, constant: -20),
-               circule[7].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: -90),
-           ]
-           NSLayoutConstraint.activate(circleT7Constraints)
-           
-           //t8
-           let circleT8Constraints: [NSLayoutConstraint] = [
-               circule[8].getView().bottomAnchor.constraint(equalTo: circule[9].getView().centerYAnchor, constant: -20),
-               circule[8].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: 90),
-           ]
-           NSLayoutConstraint.activate(circleT8Constraints)
-           
-           //t9
-           let circleT9Constraints: [NSLayoutConstraint] = [
-               circule[9].getView().bottomAnchor.constraint(equalTo: circule[11].getView().centerYAnchor),
-               circule[9].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: -50),
-           ]
-           NSLayoutConstraint.activate(circleT9Constraints)
-           
-           //t10
-
-           let circleT10Constraints: [NSLayoutConstraint] = [
-               circule[10].getView().bottomAnchor.constraint(equalTo: circule[11].getView().centerYAnchor),
-               circule[10].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: 50),
-           ]
-           NSLayoutConstraint.activate(circleT10Constraints)
-           
-           //t11
-
-           let circleT11Constraints: [NSLayoutConstraint] = [
-               circule[11].getView().bottomAnchor.constraint(equalTo: circlePContainer.bottomAnchor, constant: -18),
-               circule[11].getView().centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor),
-           ]
-           NSLayoutConstraint.activate(circleT11Constraints)
+            setCircleConstraints(circule, sizeCirc[2])
         }
         
+        
+    }
+    
+    func setCircleConstraints(_ circles:[Circule],_ sizeCirc: CGFloat) {
+        
+        var smallestAxis: CGFloat
+        if circlePContainer.bounds.height > circlePContainer.bounds.width {
+            smallestAxis = circlePContainer.bounds.width
+        }
+        else {
+            smallestAxis = circlePContainer.bounds.height
+        }
+        
+        let radius: CGFloat = (smallestAxis/2.3) - (sizeCirc/2)
+        
+        let deltaAlpha: CGFloat = CGFloat(360/circles.count)
+        var alpha: CGFloat = -90
+        
+        for c in circles {
+            c.view.centerXAnchor.constraint(equalTo: circlePContainer.centerXAnchor, constant: (cos(alpha*CGFloat.pi/180)*radius)).isActive = true
+            c.view.centerYAnchor.constraint(equalTo: circlePContainer.centerYAnchor, constant: (sin(alpha*CGFloat.pi/180)*radius)).isActive = true
+            
+            alpha -= deltaAlpha
+        }
     }
 }
