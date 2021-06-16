@@ -9,29 +9,16 @@ import UIKit
 
 
 class Buttons {
-    public func getBg(bt:UIButton, _ size:CGFloat = 60) -> UIView{
-        let btBgColor: UIView = UIView()
-        btBgColor.backgroundColor = #colorLiteral(red: 0.4485500455, green: 0.8666214347, blue: 0.7166131139, alpha: 1)
-        btBgColor.layer.cornerRadius = 30
-        btBgColor.translatesAutoresizingMaskIntoConstraints = false
-        btBgColor.addSubview(bt)
-        
-        btBgColor.widthAnchor.constraint(equalToConstant: size).isActive = true
-        btBgColor.heightAnchor.constraint(equalToConstant: size).isActive = true
-        
-        bt.centerXAnchor.constraint(equalTo: btBgColor.centerXAnchor).isActive = true
-        bt.centerYAnchor.constraint(equalTo: btBgColor.centerYAnchor).isActive = true
-        
-        return btBgColor
-    }
-        
-    private func getButtun(icon:String, _ sizeFont:CGFloat = 25) -> UIButton{
+    private func getButtun(icon:String, _ sizeFont:CGFloat = 25, _ corner:CGFloat = 60) -> UIButton{
         let bt = UIButton()
         self.setBtImage(bt: bt, icon: icon, sizeFont)
-        bt.layer.cornerRadius = 5
+        bt.layer.cornerRadius = corner/2
         bt.tintColor = #colorLiteral(red: 1, green: 0.9845215678, blue: 0.9319496751, alpha: 1)
         bt.backgroundColor = #colorLiteral(red: 0.4485500455, green: 0.8666214347, blue: 0.7166131139, alpha: 1)
         bt.translatesAutoresizingMaskIntoConstraints = false
+        
+        bt.widthAnchor.constraint(equalToConstant: corner).isActive = true
+        bt.heightAnchor.constraint(equalToConstant: corner).isActive = true
         return bt
     }
     
@@ -52,8 +39,8 @@ class Buttons {
         return self.getButtun(icon: "arrow.left")
     }
     
-    public func getNextButton(sizeFont:CGFloat = 25) -> UIButton{
-        return self.getButtun(icon: "arrow.right", sizeFont)
+    public func getNextButton(sizeFont:CGFloat = 25, _ corner:CGFloat = 60) -> UIButton{
+        return self.getButtun(icon: "arrow.right", sizeFont, corner)
     }
     
     public func getRestartButton() -> UIButton{
@@ -63,5 +50,4 @@ class Buttons {
     public func getPlayButton() -> UIButton{
         return self.getButtun(icon: "play")
     }
-
 }

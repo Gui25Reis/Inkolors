@@ -8,25 +8,20 @@
 import UIKit
 
 class IntroView: UIView {
-    var buttonHome: UIButton = UIButton(frame: .zero)
-    var bgButtonHome: UIView = UIView(frame: .zero)
-    var buttonNext: UIButton = UIButton(frame: .zero)
-    var bgButtonNext: UIView = UIView(frame: .zero)
-    var titleLabel: UILabel = UILabel(frame: .zero)
-    var infoLabel: UILabel = UILabel(frame: .zero)
+    var buttonHome: UIButton = UIButton()
+    var buttonNext: UIButton = UIButton()
+    var titleLabel: UILabel = UILabel()
+    var infoLabel: UILabel = UILabel()
     
     init() {
         super.init(frame: .zero)
         
         // Botões
         self.buttonHome = Buttons().getHomeButton()
-        self.bgButtonHome = Buttons().getBg(bt: self.buttonHome)
-        self.addSubview(self.bgButtonHome)
+        self.addSubview(self.buttonHome)
         
-        self.buttonNext = Buttons().getNextButton(sizeFont: 40)
-        self.bgButtonNext = Buttons().getBg(bt: self.buttonNext, 80)
-        self.bgButtonNext.layer.cornerRadius = 40
-        self.addSubview(self.bgButtonNext)
+        self.buttonNext = Buttons().getNextButton(sizeFont: 40, 80)
+        self.addSubview(self.buttonNext)
         
         
         // Labels
@@ -66,13 +61,13 @@ class IntroView: UIView {
         super.layoutSubviews()
         
         // Home button (view)
-        self.bgButtonHome.topAnchor.constraint(equalTo: self.topAnchor, constant: self.bounds.height * 0.070).isActive = true
-        self.bgButtonHome.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
+        self.buttonHome.topAnchor.constraint(equalTo: self.topAnchor, constant: self.bounds.height * 0.070).isActive = true
+        self.buttonHome.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
                 
         
         // Next button (view)
-        self.bgButtonNext.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        self.bgButtonNext.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: self.bounds.height * -0.15).isActive = true
+        self.buttonNext.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.buttonNext.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: self.bounds.height * -0.15).isActive = true
         
         
         // Title

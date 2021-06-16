@@ -9,11 +9,8 @@ import UIKit
 
 class PrizeView: UIView {
     var buttonHome: UIButton = UIButton(frame: .zero)
-    var bgButtonHome: UIView = UIView(frame: .zero)
     var buttonNext: UIButton = UIButton(frame: .zero)
-    var bgButtonNext: UIView = UIView(frame: .zero)
     var buttonRestart: UIButton = UIButton(frame: .zero)
-    var bgButtonRestart: UIView = UIView(frame: .zero)
     
     var currentLevel:Int = 0
     
@@ -52,16 +49,13 @@ class PrizeView: UIView {
         
         // Botões
         self.buttonHome = Buttons().getHomeButton()
-        self.bgButtonHome = Buttons().getBg(bt: self.buttonHome)
-        self.container.addSubview(self.bgButtonHome)
+        self.container.addSubview(self.buttonHome)
         
         self.buttonRestart = Buttons().getRestartButton()
-        self.bgButtonRestart = Buttons().getBg(bt: self.buttonRestart)
-        self.container.addSubview(self.bgButtonRestart)
+        self.container.addSubview(self.buttonRestart)
         
         self.buttonNext = Buttons().getNextButton()
-        self.bgButtonNext = Buttons().getBg(bt: self.buttonNext)
-        self.container.addSubview(self.bgButtonNext)
+        self.container.addSubview(self.buttonNext)
         
         
         // Labels
@@ -90,7 +84,7 @@ class PrizeView: UIView {
     public func setCurrentLevel(level:Int) -> Void {
         self.currentLevel = level
         if (self.currentLevel == 2) {
-            bgButtonNext.isHidden = true
+            buttonNext.isHidden = true
             buttonNext.isEnabled = false
         }
     }
@@ -113,29 +107,29 @@ class PrizeView: UIView {
         
         
         // Home button (view)
-        self.bgButtonHome.bottomAnchor.constraint(equalTo: self.bgButtonRestart.bottomAnchor).isActive = true
+        self.buttonHome.bottomAnchor.constraint(equalTo: self.buttonRestart.bottomAnchor).isActive = true
         if (self.currentLevel == 2) {
-            self.bgButtonHome.rightAnchor.constraint(equalTo: self.bgButtonRestart.leftAnchor, constant: -40).isActive = true
+            self.buttonHome.rightAnchor.constraint(equalTo: self.buttonRestart.leftAnchor, constant: -40).isActive = true
         }else{
-            self.bgButtonHome.rightAnchor.constraint(equalTo: self.bgButtonRestart.leftAnchor, constant: -20).isActive = true
+            self.buttonHome.rightAnchor.constraint(equalTo: self.buttonRestart.leftAnchor, constant: -20).isActive = true
         }
         
         // Restart button (view)
-        self.bgButtonRestart.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: -50).isActive = true
+        self.buttonRestart.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: -50).isActive = true
         if (self.currentLevel == 2) {
-            self.bgButtonRestart.centerXAnchor.constraint(equalTo: self.container.centerXAnchor, constant: 50).isActive = true
+            self.buttonRestart.centerXAnchor.constraint(equalTo: self.container.centerXAnchor, constant: 50).isActive = true
         }else{
-            self.bgButtonRestart.centerXAnchor.constraint(equalTo: self.container.centerXAnchor).isActive = true
+            self.buttonRestart.centerXAnchor.constraint(equalTo: self.container.centerXAnchor).isActive = true
         }
         
         // Next button
-        self.bgButtonNext.bottomAnchor.constraint(equalTo: self.bgButtonRestart.bottomAnchor).isActive = true
-        self.bgButtonNext.leftAnchor.constraint(equalTo: self.bgButtonRestart.rightAnchor, constant: 20).isActive = true
+        self.buttonNext.bottomAnchor.constraint(equalTo: self.buttonRestart.bottomAnchor).isActive = true
+        self.buttonNext.leftAnchor.constraint(equalTo: self.buttonRestart.rightAnchor, constant: 20).isActive = true
         
         
         // Medalha
         self.medalImage.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 25).isActive = true
-        self.medalImage.bottomAnchor.constraint(equalTo: self.bgButtonRestart.topAnchor, constant: -20).isActive = true
+        self.medalImage.bottomAnchor.constraint(equalTo: self.buttonRestart.topAnchor, constant: -20).isActive = true
         self.medalImage.leadingAnchor.constraint(equalTo: self.container.leadingAnchor).isActive = true
         self.medalImage.trailingAnchor.constraint(equalTo: self.container.trailingAnchor).isActive = true
     }

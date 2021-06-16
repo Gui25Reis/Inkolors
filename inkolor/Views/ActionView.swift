@@ -8,10 +8,9 @@
 import UIKit
 
 class ActionView: UIView {
-    var buttonHome: UIButton = UIButton(frame: .zero)
-    var bgButtonHome: UIView = UIView(frame: .zero)
-    var buttonSound: UIButton = UIButton(frame: .zero)
-    var bgButtonSound: UIView = UIView(frame: .zero)
+    var buttonHome: UIButton = UIButton()
+    var buttonSound: UIButton = UIButton()
+    
     let infoLabel: UILabel = {
         let label:UILabel = UILabel()
         label.textAlignment = .center
@@ -39,25 +38,13 @@ class ActionView: UIView {
         
         // Home button
         self.buttonHome = Buttons().getHomeButton()
-        self.bgButtonHome = Buttons().getBg(bt: self.buttonHome)
-        self.addSubview(self.bgButtonHome)
+        self.addSubview(self.buttonHome)
         
         // Sound button
         self.buttonSound = Buttons().getSoundOnButton()
-        self.bgButtonSound = Buttons().getBg(bt: self.buttonSound)
-        self.addSubview(self.bgButtonSound)
+        self.addSubview(self.buttonSound)
                 
         // Círculos
-        switch self.currentLevel {
-        case 0:
-            self.createCircles(loop: 3, size: 80, corner: 40)
-        case 1:
-            self.createCircles(loop: 6, size: 60, corner: 30)
-        default:
-            self.createCircles(loop: 12, size: 40, corner: 20)
-        }
-                        
-        for c in self.gameCircules {circlePContainer.addSubview(c.getView())}
         self.addSubview(circlePContainer)
         
         // Tintas
@@ -84,13 +71,29 @@ class ActionView: UIView {
     
     public func getViewCircules() -> UIView {return self.circlePContainer}
     
-    public func setCompletedLevels(level:Int) -> Void {self.currentLevel = level}
-    
+    public func setCompletedLevels(level:Int) -> Void {
+        self.currentLevel = level
+        
+        switch self.currentLevel {
+        case 0:
+            self.createCircles(loop: 3, size: 80, corner: 40)
+            setCircleConstraints(sizeCircule: 80)
+        case 1:
+            self.createCircles(loop: 6, size: 60, corner: 30)
+            setCircleConstraints(sizeCircule: 60)
+        default:
+            self.createCircles(loop: 12, size: 40, corner: 20)
+            setCircleConstraints(sizeCircule: 40)
+        }
+    }
     
         
     private func createCircles(loop:Int, size:CGFloat, corner:CGFloat){
-        for _ in 0..<loop {
+        for i in self.gameCircules {i.getView().removeFromSuperview()}
+        self.gameCircules = []
+        for i in 0..<loop {
             self.gameCircules.append(Circule(size: size, color: .gray, corner: corner))
+            self.circlePContainer.addSubview(self.gameCircules[i].getView())
         }
     }
     
@@ -101,19 +104,19 @@ class ActionView: UIView {
         /* MARK: Constraints - Botões */
         
         // Home button
-        self.bgButtonHome.topAnchor.constraint(equalTo: self.topAnchor, constant: self.bounds.height * 0.070).isActive = true
-        self.bgButtonHome.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
+        self.buttonHome.topAnchor.constraint(equalTo: self.topAnchor, constant: self.bounds.height * 0.070).isActive = true
+        self.buttonHome.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
 
         
         // Sound button
-        self.bgButtonSound.topAnchor.constraint(equalTo: self.topAnchor, constant: self.bounds.height * 0.070).isActive = true
-        self.bgButtonSound.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30).isActive = true
+        self.buttonSound.topAnchor.constraint(equalTo: self.topAnchor, constant: self.bounds.height * 0.070).isActive = true
+        self.buttonSound.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30).isActive = true
         
         
         // Info text
         infoLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40).isActive = true
         infoLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40).isActive = true
-        infoLabel.topAnchor.constraint(equalTo: bgButtonHome.topAnchor, constant: 90).isActive = true
+        infoLabel.topAnchor.constraint(equalTo: buttonHome.topAnchor, constant: 90).isActive = true
 
 
         /* MARK: Constraints - Tintas */
@@ -163,16 +166,6 @@ class ActionView: UIView {
         self.circlePContainer.topAnchor.constraint(equalTo: self.topAnchor, constant: self.bounds.height * 0.3).isActive = true
         self.circlePContainer.heightAnchor.constraint(equalToConstant: 300).isActive = true
         self.circlePContainer.widthAnchor.constraint(equalToConstant: 300).isActive = true
-
-        
-        switch self.currentLevel {
-        case 0:
-            setCircleConstraints(sizeCircule: 80)
-        case 1:
-            setCircleConstraints(sizeCircule: 60)
-        default:
-            setCircleConstraints(sizeCircule: 40)
-        }
     }
     
 
