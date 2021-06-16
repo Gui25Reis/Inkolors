@@ -8,12 +8,13 @@
 import UIKit
 
 class Ink {
-    let inks:[UIImage] = [#imageLiteral(resourceName: "Tinta-5"), #imageLiteral(resourceName: "Tinta-3"), #imageLiteral(resourceName: "Tinta-1"), #imageLiteral(resourceName: "Tinta-4"), #imageLiteral(resourceName: "Tinta-6"), #imageLiteral(resourceName: "Tinta-2")]
+    var inks:[UIImage] = [#imageLiteral(resourceName: "Tinta-5"), #imageLiteral(resourceName: "Tinta-3"), #imageLiteral(resourceName: "Tinta-1"), #imageLiteral(resourceName: "Tinta-4"), #imageLiteral(resourceName: "Tinta-6"), #imageLiteral(resourceName: "Tinta-2")]
     var imgView:UIImageView
     var color:UIColor = UIColor()
     var constraints:[NSLayoutConstraint] = []
     
     init() {
+        self.inks = self.inks.shuffled()
         self.imgView = UIImageView()
         self.imgView.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
         self.imgView.clipsToBounds = true

@@ -123,8 +123,8 @@ class ActionViewController: UIViewController {
         // Tintas
         self.inks = self.myView.getInks()
         
-        let inkColors:[UIColor] = self.lvInkColors[self.currentLevel]
-        for x in 0..<6 {
+        let inkColors:[UIColor] = self.lvInkColors[self.currentLevel].shuffled()
+        for x in 0..<6{
             self.inks[x].setConfigs(num:x, color:inkColors[x])
         }
         
