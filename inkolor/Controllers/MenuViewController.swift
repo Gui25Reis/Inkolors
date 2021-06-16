@@ -8,7 +8,7 @@ class MenuViewController: UIViewController {
     let myView = MenuView()
     
     let letters:[String] = ["I", "N", "K", "O", "L", "O", "R", "S"]
-    let colors:[UIColor] = [#colorLiteral(red: 0, green: 0.6439785361, blue: 0, alpha: 1) ,  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 0, green: 0.6153349876, blue: 0.5963861346, alpha: 1),  #colorLiteral(red: 1, green: 0.4701431394, blue: 0, alpha: 1),  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1),  #colorLiteral(red: 0.3140003979, green: 0.8086813688, blue: 0.6361778378, alpha: 1),  #colorLiteral(red: 0.75294137, green: 0.8443900943, blue: 0, alpha: 1)]
+    let colors:[UIColor] = [#colorLiteral(red: 0, green: 0.6439785361, blue: 0, alpha: 1) ,  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 0, green: 0.6153349876, blue: 0.5963861346, alpha: 1),  #colorLiteral(red: 1, green: 0.4701431394, blue: 0, alpha: 1),  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1),  #colorLiteral(red: 0.3140003979, green: 0.8086813688, blue: 0.6361778378, alpha: 1),  #colorLiteral(red: 0.6979225278, green: 0.7649332881, blue: 0, alpha: 1)]
     let medals:[UIImage] = [#imageLiteral(resourceName: "medalha-pequena-bronze"), #imageLiteral(resourceName: "medalha-pequena-prata"), #imageLiteral(resourceName: "medalha-pequena-ouro")]
     
     let defaults = UserDefaults.standard
@@ -27,7 +27,6 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-                
         // self.resetGame()
         
         // Definindo os levels
