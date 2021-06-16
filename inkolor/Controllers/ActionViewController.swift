@@ -14,7 +14,7 @@ class ActionViewController: UIViewController {
     var buttonSound = UIButton()
     var audioCorrect: AVAudioPlayer?
     var audioWrong: AVAudioPlayer?
-    var soundOn:Bool = true
+    var soundOn:Bool = false
     
     // Drag and drop
     var offset:CGPoint?
@@ -88,6 +88,11 @@ class ActionViewController: UIViewController {
         self.currentLevel = self.defaults.integer(forKey: "level")
         self.completedLevels = self.defaults.integer(forKey: "completedLevels")
         self.soundOn = self.defaults.bool(forKey: "soundOn")
+        
+        if self.defaults.integer(forKey: "nextTapped") <= 1 {
+            self.actSound()
+            self.defaults.set(2, forKey: "nextTapped")
+        }
         
         self.myView.setCompletedLevels(level: self.currentLevel)
         // Label
@@ -270,8 +275,8 @@ class ActionViewController: UIViewController {
     }
     
     
-    @objc private func actSound(_ button: UIButton){
-        self.soundOn = !self.soundOn
+    @objc private func actSound(){
+        self.soundOn.toggle()
         self.defaults.setValue(self.soundOn, forKey: "soundOn")
         self.changeButtonIcon()
     }

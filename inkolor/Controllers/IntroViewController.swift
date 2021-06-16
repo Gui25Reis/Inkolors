@@ -57,7 +57,9 @@ class IntroViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    @IBAction func actNext() -> Void{
+    @IBAction func actNext() -> Void {
+        self.defaults.set(self.defaults.integer(forKey: "nextTapped")+1, forKey: "nextTapped")
+        
         guard let vc = storyboard?.instantiateViewController(identifier: "idAction") as? ActionViewController else {return}
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
