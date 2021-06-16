@@ -7,7 +7,8 @@ import UIKit
 class MenuViewController: UIViewController {
     
     let letters:[String] = ["I", "N", "K", "O", "L", "O", "R", "S"]
-    let colors:[UIColor] = [ #colorLiteral(red: 0, green: 0.6439785361, blue: 0, alpha: 1),  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 0, green: 0.6153349876, blue: 0.5963861346, alpha: 1),  #colorLiteral(red: 1, green: 0.4701431394, blue: 0, alpha: 1),  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1),  #colorLiteral(red: 0.1485393047, green: 0.8102342486, blue: 0.6060324907, alpha: 1),  #colorLiteral(red: 0.75294137, green: 0.8443900943, blue: 0, alpha: 1)]
+
+    let colors:[UIColor] = [ #colorLiteral(red: 0, green: 0.6439785361, blue: 0, alpha: 1),  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 0, green: 0.6153349876, blue: 0.5963861346, alpha: 1),  #colorLiteral(red: 1, green: 0.4701431394, blue: 0, alpha: 1),  #colorLiteral(red: 0.7766265869, green: 0, blue: 0.6352015734, alpha: 1),  #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1),  #colorLiteral(red: 0.3140003979, green: 0.8086813688, blue: 0.6361778378, alpha: 1),  #colorLiteral(red: 0.75294137, green: 0.8443900943, blue: 0, alpha: 1)]
     var labels:[UILabel] = []
     var buttons:[UIButton] = []
     let defaults = UserDefaults.standard
