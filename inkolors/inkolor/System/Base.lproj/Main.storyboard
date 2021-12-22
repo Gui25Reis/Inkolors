@@ -11,7 +11,7 @@
         <!--Menu View Controller-->
         <scene sceneID="YXb-zM-xK7">
             <objects>
-                <viewController storyboardIdentifier="idMenu" id="lVI-fr-nPn" customClass="MenuViewController" customModule="testeSom" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="idMenu" id="lVI-fr-nPn" customClass="MenuViewController" customModule="inkolor" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrX-xu-rjo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="730" y="-579"/>
@@ -19,7 +19,7 @@
         <!--Intro View Controller-->
         <scene sceneID="05A-hS-jIe">
             <objects>
-                <viewController storyboardIdentifier="idIntro" id="myo-5Q-BHE" customClass="IntroViewController" customModule="testeSom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="idIntro" id="myo-5Q-BHE" customClass="IntroViewController" customModule="inkolor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ubx-U9-cfC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
         <!--Action View Controller-->
         <scene sceneID="LGt-rt-3n7">
             <objects>
-                <viewController storyboardIdentifier="idAction" id="G2M-hb-bcU" customClass="ActionViewController" customModule="testeSom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="idAction" id="G2M-hb-bcU" customClass="ActionViewController" customModule="inkolor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HWH-L9-hVM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="2201" y="-579"/>
         </scene>
-        <!--Price View Controller-->
+        <!--Prize View Controller-->
         <scene sceneID="35v-jf-uvf">
             <objects>
-                <viewController storyboardIdentifier="idPrice" id="nWl-y6-8kI" customClass="PriceViewController" customModule="testeSom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="idPrize" id="nWl-y6-8kI" customClass="PrizeViewController" customModule="inkolor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sma-qR-bsr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
