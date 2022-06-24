@@ -1,32 +1,68 @@
 # Inkolors
 [![Versão](https://img.shields.io/badge/versão-1.1.0-orange)](https://github.com/Gui25Reis/Inkolors/releases/tag/v1.1)
 ![Tamanho](https://img.shields.io/badge/tamanho-1,4%20MB-blue)
-[![Plataform](https://img.shields.io/badge/plataforma-IOS%2014.5+-lightgrey?)](https://apps.apple.com/us/app/inkolors/id1572342593)
+[![Plataform](https://img.shields.io/badge/plataforma-IOS%2014.5+-lightgrey?ogo=ios)](https://apps.apple.com/us/app/inkolors/id1572342593)
+![Framework](https://img.shields.io/badge/framework-UIKit-red?logo=uikit)
 [![Swift version](https://img.shields.io/badge/swift-v5.3-blue?logo=swift)](https://swift.org/download/#releases)
 [![License](https://img.shields.io/badge/licença-GNU%20v3.0-brightgreen?)](https://github.com/Gui25Reis/Inkolors/blob/main/LICENSE)
 
 ![Capa](https://github.com/Gui25Reis/Inkolors/blob/main/arquivos/Git-Capa.png)
 
+<p align="center">
+    <a href="https://apps.apple.com/us/app/inkolors/id1572342593">
+        <img src="https://github.com/Gui25Reis/Gui25Reis/blob/main/images/AppStore-Pt.png"/>
+    </a>
+</p>
+
 Você sabia que algumas cores são feitas pela mistura de outras cores? Com este jogo, você pode aprender tudo sobre as cores dos pigmentos primários, secundários e terciários de uma forma divertida e desafiadora!
 
 
-1. [App Store](#app-store)
-2. [Código](#código)
-3. [Documentação](#documentação)
-4. [Licença](#licença)
-5. [Autores](#autores)
+1. [Plataforma e Requerimentos](#plataforma-e-requerimentos)
+2. [Frameworks Usados](#frameworks-usados)
+3. [Demonstração](#demonstração)
+4. [Idiomas](#idiomas-disponíveis)
+5. [Documentação](#documentação)
+6. [Licença](#licença)
+7. [Autores](#autores)
 
-## App Store
-O aplicativo já está disponível na AppStore, [baixe já](https://apps.apple.com/us/app/inkolors/id1572342593)!.
 
-## Código
-Todo código pode ser encontrado [aqui](https://github.com/Gui25Reis/Inkolors/blob/main/inkolors/inkolor)
+## Plataforma e requerimentos
+| **Plataforma** |   **OS**    | **Geração** |
+|----------------|:-----------:|:-----------:|
+iPhone           | iOS 14.5+   | Geração 7+
+
+
+## Frameworks Usados
+A aplicação foi feito com swift 5.3 e todo código criado e utilizado está nesse repositório na pasta [inkolors](https://github.com/Gui25Reis/Inkolors/blob/main/inkolors/inkolor).
+
+
+| **Framework** |   **Uso**  
+|---------------|-----------
+UIKit           | Aplicação com view code
+
+
+## Demonstração
+<p align="center">
+    <img width=24% src="https://github.com/Gui25Reis/Inkolors/blob/main/arquivos/Telas/tela-01.png"/>
+    <img width=24% src="https://github.com/Gui25Reis/Inkolors/blob/main/arquivos/Telas/tela-02.png"/>
+    <img width=24% src="https://github.com/Gui25Reis/Inkolors/blob/main/arquivos/Telas/tela-03.png"/>
+    <img width=24% src="https://github.com/Gui25Reis/Inkolors/blob/main/arquivos/Telas/tela-04.png"/>
+</p>
+
+
+## Idiomas disponíveis
+|     **Idiomas**     |
+|---------------------|
+| Inglês              |
+
 
 ## Documentação
-Documentação em construção na [wiki](https://github.com/Gui25Reis/Inkolors/wiki) do projeto.
+A documentação está na [wiki](https://github.com/Gui25Reis/Inkolors/wiki) do projeto.
+
 
 ## Licença
-Esse projeto é licenciado pela [GNU General Public License v3.0](https://github.com/Gui25Reis/Inkolors/blob/dev/LICENSE).
+Esse projeto é open source e licenciado pela [GNU General Public License v3.0](https://github.com/Gui25Reis/Inkolors/blob/dev/LICENSE).
+
 
 ## Autores
 <table>
@@ -57,4 +93,3 @@ Esse projeto é licenciado pela [GNU General Public License v3.0](https://github
         </td>
     </tr>
 </table>
-
